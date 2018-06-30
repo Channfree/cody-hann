@@ -59,3 +59,9 @@ typings/
 
 # other
 .cache
+
+# OSX
+.DS_Store
+
+# Build
+dist
