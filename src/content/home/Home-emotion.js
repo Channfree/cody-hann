@@ -9,7 +9,7 @@ export const sky = css`
   align-items: center;
 
   h1 {
-    font-size: 3rem;
+    font-size: 5rem;
     font-weight: bold;
     ${colors.colorDeepWater(1)};
     margin: 0;

@@ -1,5 +1,7 @@
 import * as React from 'react';
 
-const Work = () => <div>Work</div>;
+import { work } from './Work-emotion';
+
+const Work = () => <div className={work}>Work</div>;
 
 export default Work;

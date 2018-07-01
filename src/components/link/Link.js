@@ -10,7 +10,7 @@ const Link = ({ children, className, isRouterLink, ...rest }) =>
       {children}
     </RouterLink>
   ) : (
-    <a className={cx(link, className)} {...rest}>
+    <a className={cx(link, className)} target="_blank" {...rest}>
       {children}
     </a>
   );

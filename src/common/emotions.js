@@ -31,3 +31,19 @@ export const colorBlueWaters = opacity => css`
 export const colorFrothyWaters = opacity => css`
   color: rgba(222, 243, 246, ${opacity});
 `;
+
+export const fillSkyBlue = opacity => css`
+  fill: rgba(127, 205, 255, ${opacity});
+`;
+export const fillMurkyWater = opacity => css`
+  fill: rgba(118, 182, 196, ${opacity});
+`;
+export const fillDeepWater = opacity => css`
+  fill: rgba(6, 66, 115, ${opacity});
+`;
+export const fillBlueWaters = opacity => css`
+  fill: rgba(29, 162, 216, ${opacity});
+`;
+export const fillFrothyWaters = opacity => css`
+  fill: rgba(222, 243, 246, ${opacity});
+`;

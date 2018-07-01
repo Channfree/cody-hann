@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { injectGlobal } from 'emotion';
 
+import * as colors from './common/emotions';
 import Router from './router/Router';
 
 injectGlobal`
@@ -10,6 +11,7 @@ injectGlobal`
   }
 
   body {
+    ${colors.bgDeepWater(1)};
     font-family: 'Poppins', sans-serif;
     margin: 0;
   }
