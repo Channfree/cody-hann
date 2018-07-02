@@ -1,12 +1,29 @@
 import * as React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, withRouter } from 'react-router-dom';
 import { cx } from 'emotion';
 
 import { link } from './Link-emotion';
 
-const Link = ({ children, className, isRouterLink, ...rest }) =>
+const onClick = (e, pathname, to) => {
+  if (pathname === to) {
+    e.preventDefault();
+  }
+};
+
+const Link = ({
+  children,
+  className,
+  isRouterLink,
+  location,
+  staticContext,
+  ...rest
+}) =>
   isRouterLink ? (
-    <RouterLink className={cx(link, className)} {...rest}>
+    <RouterLink
+      className={cx(link, className)}
+      onClick={e => onClick(e, location.pathname, rest.to)}
+      {...rest}
+    >
       {children}
     </RouterLink>
   ) : (
@@ -15,4 +32,4 @@ const Link = ({ children, className, isRouterLink, ...rest }) =>
     </a>
   );
 
-export default Link;
+export default withRouter(Link);

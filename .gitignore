@@ -64,4 +64,5 @@ typings/
 .DS_Store
 
 # Build
-dist
+dist/js
+dist/index.html

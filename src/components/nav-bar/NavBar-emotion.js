@@ -16,6 +16,10 @@ export const navBar = css`
     padding: 0.5rem 2rem;
     transition: color 200ms ease-in-out;
 
+    &.active {
+      ${colors.colorSkyBlue(1)};
+    }
+
     &:active,
     &:focus,
     &:hover {

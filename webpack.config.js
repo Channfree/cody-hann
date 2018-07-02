@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: ['./src/index.js'],
+    app: ['babel-polyfill', './src/index.js'],
   },
 
   output: {
@@ -47,6 +47,9 @@ module.exports = {
     historyApiFallback: true,
     inline: true,
     port: 3030,
+    proxy: {
+      '/spine-animations': 'http://localhost:8080',
+    },
     stats: { colors: true },
   },
 

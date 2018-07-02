@@ -1,17 +1,14 @@
 import * as React from 'react';
 
+import { withProvider } from '../context/Context';
 import NavBar from '../components/nav-bar/NavBar';
 import Content from '../content/Content';
 
-class App extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        <NavBar />
-        <Content />
-      </React.Fragment>
-    );
-  }
-}
+const App = () => (
+  <React.Fragment>
+    <NavBar />
+    <Content />
+  </React.Fragment>
+);
 
-export default App;
+export default withProvider(App);
