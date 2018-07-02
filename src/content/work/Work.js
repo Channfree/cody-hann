@@ -28,7 +28,7 @@ class Work extends React.Component {
       json: `${BASE_URL}/${prefix}${json}`,
       atlas: `${BASE_URL}/${prefix}${atlas}`,
       animation: animationName,
-      backgroundColor: '#064273',
+      backgroundColor: '#00000000',
       success: widget => {
         let animIndex = 0;
         widget.canvas.onclick = function() {
