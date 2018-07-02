@@ -2,6 +2,7 @@ import * as React from 'react';
 import { equals } from 'ramda';
 
 import { withConsumer } from '../../context/Context';
+import { BASE_URL } from '../../common/urls';
 
 import { animation, animations, work } from './Work-emotion';
 
@@ -24,8 +25,8 @@ class Work extends React.Component {
 
   createSpineWidget = ({ animationName, atlas, json, name, prefix }) => {
     new spine.SpineWidget(name, {
-      json: `https://storage.googleapis.com/resounding-axe-193803.appspot.com/${prefix}${json}`,
-      atlas: `https://storage.googleapis.com/resounding-axe-193803.appspot.com/${prefix}${atlas}`,
+      json: `${BASE_URL}/${prefix}${json}`,
+      atlas: `${BASE_URL}/${prefix}${atlas}`,
       animation: animationName,
       backgroundColor: '#064273',
       success: widget => {

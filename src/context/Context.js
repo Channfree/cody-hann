@@ -3,6 +3,8 @@ import axios from 'axios';
 import { keys, zip } from 'ramda';
 import { get } from 'object-path';
 
+import { BASE_URL } from '../common/urls';
+
 const Context = React.createContext();
 
 const withProvider = WrappedComponent =>
@@ -30,9 +32,7 @@ const withProvider = WrappedComponent =>
 
         const animations = await Promise.all(
           manifest.map(({ json, prefix }) =>
-            axios.get(
-              `https://storage.googleapis.com/resounding-axe-193803.appspot.com/${prefix}${json}`
-            )
+            axios.get(`${BASE_URL}/${prefix}${json}`)
           )
         );
 
