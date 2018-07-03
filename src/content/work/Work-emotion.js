@@ -4,11 +4,6 @@ import * as colors from '../../common/emotions';
 
 export const animations = css``;
 
-export const animation = css`
-  height: 20rem;
-  width: 60rem;
-`;
-
 export const work = css`
   align-items: center;
   ${colors.colorFrothyWaters(1)};
