@@ -9,8 +9,10 @@ class Animation extends React.Component {
     this.createSpineWidget(this.props.animation);
   }
 
+  widget;
+
   createSpineWidget = ({ animationName, atlas, json, name, prefix }) => {
-    new spine.SpineWidget(name, {
+    this.widget = new spine.SpineWidget(name, {
       json: `${BASE_URL}/${prefix}${json}`,
       atlas: `${BASE_URL}/${prefix}${atlas}`,
       animation: animationName,
