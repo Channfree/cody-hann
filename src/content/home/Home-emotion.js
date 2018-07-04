@@ -1,53 +1,77 @@
 import { css } from 'emotion';
 import * as colors from '../../common/emotions';
 
-export const sky = css`
-  align-items: center;
-  ${colors.bgSkyBlue(1)};
+const numLayers = 3;
+const perspective = 100;
+
+export const parallax = css`
   height: calc(100vh - 3rem);
-  display: flex;
-  justify-content: center;
+  perspective: ${100}px;
   overflow-x: hidden;
   overflow-y: auto;
-  perspective: 1px;
   position: relative;
 
-  h1 {
-    font-size: 5rem;
-    font-weight: bold;
-    ${colors.colorDeepWater(1)};
-    margin: 0;
+  .parallax__group {
+    height: calc(100vh - 3rem);
+    position: relative;
+    transform-style: preserve-3d;
   }
 `;
 
-export const layer = css`
+const getLayer = layer => {
+  const translateZ = (layer - numLayers + 1) * perspective;
+  const scale = 1 + (translateZ * -1) / perspective;
+
+  return css`
+    position: absolute;
+    transform: translateZ(${translateZ}px) scale(${scale});
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  `;
+};
+
+const group = css`
+  height: calc(100vh - 3rem);
+  position: relative;
+  transform-style: preserve-3d;
+`;
+
+export const parallaxLayer0 = css`
+  border: 0.5rem solid orange;
+  ${getLayer(0)};
+  height: 100%;
+  margin: 0;
+`;
+
+export const parallaxLayer1 = css`
+  border: 0.5rem solid green;
   bottom: 0;
-  left: 0;
+  ${getLayer(1)};
 `;
 
-export const sea = css`
-  border: 1rem solid black;
-  ${colors.bgBlueWaters(1)};
-  height: 20rem;
-  ${layer};
-  width: 100%;
-  position: absolute;
-  transform: translateZ(0);
+export const parallaxLayer2 = css`
+  border: 0.5rem solid yellow;
+  bottom: 0;
+  ${getLayer(2)};
 `;
 
-export const higherSea = css`
-  border: 1rem solid black;
-  ${colors.bgBlueWaters(1)};
-  height: 30rem;
-  ${layer};
-  width: 100%;
-  position: absolute;
-  transform: translateZ(-1px) scale(2);
+export const group0 = css`
+  ${group};
+  z-index: 20;
+`;
+
+export const group1 = css`
+  ${group};
+  z-index 10;:
 `;
 
 export const deepSea = css`
+  border: 0.5rem solid purple;
   ${colors.bgDeepWater(1)};
   height: 200rem;
   position: absolute;
-  transform: translateZ(0);
+  width: 100%;
 `;

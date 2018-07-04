@@ -6,6 +6,7 @@ export const navBar = css`
   align-items: center;
   ${colors.bgDeepWater(1)};
   display: flex;
+  height: 3rem;
   justify-content: flex-end;
 
   & a {

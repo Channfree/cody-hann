@@ -1,14 +1,26 @@
 import * as React from 'react';
 
-import { deepSea, sea, sky, higherSea } from './Home-emotion';
+import {
+  deepSea,
+  group0,
+  group1,
+  parallax,
+  parallaxLayer0,
+  parallaxLayer1,
+  parallaxLayer2,
+} from './Home-emotion';
 
 const Home = () => (
   <React.Fragment>
-    <div className={sky}>
-      <h1>Cody Hann</h1>
-      <div className={sea} />
-      <div className={higherSea} />
-      <div className={deepSea} />
+    <div className={parallax}>
+      <div className={group0}>
+        <h1 className={parallaxLayer0}>Cody Hann</h1>
+        <div className={parallaxLayer1} />
+        <div className={parallaxLayer2} />
+      </div>
+      <div className={group1}>
+        <div className={deepSea} />
+      </div>
     </div>
   </React.Fragment>
 );
