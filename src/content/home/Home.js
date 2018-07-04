@@ -11,18 +11,16 @@ import {
 } from './Home-emotion';
 
 const Home = () => (
-  <React.Fragment>
-    <div className={parallax}>
-      <div className={group0}>
-        <h1 className={parallaxLayer0}>Cody Hann</h1>
-        <div className={parallaxLayer1} />
-        <div className={parallaxLayer2} />
-      </div>
-      <div className={group1}>
-        <div className={deepSea} />
-      </div>
+  <div className={parallax}>
+    <div className={group0}>
+      <h1 className={parallaxLayer0}>Cody Hann</h1>
+      <div className={parallaxLayer1} />
+      <div className={parallaxLayer2} />
     </div>
-  </React.Fragment>
+    <div className={group1}>
+      <div className={deepSea} />
+    </div>
+  </div>
 );
 
 export default Home;

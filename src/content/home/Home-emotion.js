@@ -35,8 +35,13 @@ const group = css`
 // transform: translate3d(700px, 0, -800px) rotateY(30deg);
 
 export const parallaxLayer0 = css`
+  align-items: center;
   border: 0.5rem solid orange;
+  display: flex;
+  font-size: 5rem;
+  font-weight: bold;
   ${getLayer(0)};
+  justify-content: center;
   height: 100%;
   margin: 0;
 `;
