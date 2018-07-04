@@ -10,12 +10,6 @@ export const parallax = css`
   overflow-x: hidden;
   overflow-y: auto;
   position: relative;
-
-  .parallax__group {
-    height: calc(100vh - 3rem);
-    position: relative;
-    transform-style: preserve-3d;
-  }
 `;
 
 const getLayer = layer => {
@@ -38,6 +32,7 @@ const group = css`
   position: relative;
   transform-style: preserve-3d;
 `;
+// transform: translate3d(700px, 0, -800px) rotateY(30deg);
 
 export const parallaxLayer0 = css`
   border: 0.5rem solid orange;
@@ -62,14 +57,15 @@ export const group0 = css`
   ${group};
   z-index: 20;
 `;
+// z-index: -1;
 
 export const group1 = css`
   ${group};
-  z-index 10;:
+  z-index 10;
 `;
 
 export const deepSea = css`
-  border: 0.5rem solid purple;
+  border: 0.5rem solid red;
   ${colors.bgDeepWater(1)};
   height: 200rem;
   position: absolute;
