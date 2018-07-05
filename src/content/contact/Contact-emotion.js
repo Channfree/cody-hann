@@ -15,12 +15,14 @@ export const links = css`
   column-gap: 3rem;
   display: grid;
   grid-template-columns: 12rem 12rem 12rem;
-  grid-template-rows: 12rem 12rem;
+  grid-template-rows: auto;
   row-gap: 2rem;
 
-  @media (max-width: 1079px) {
+  @media (max-width: 779px) {
+    column-gap: 2rem;
     grid-template-columns: 12rem 12rem;
     grid-template-rows: 12rem 12rem 12rem;
+    row-gap: 1.5rem;
   }
 
   & a {
@@ -28,6 +30,8 @@ export const links = css`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-bottom: 5rem;
+    padding-top: 3rem;
     position: relative;
     transition: color 200ms ease-in-out;
 
@@ -48,6 +52,6 @@ export const links = css`
 
   span {
     position: absolute;
-    bottom: 1.5rem;
+    bottom: 2.5rem;
   }
 `;
