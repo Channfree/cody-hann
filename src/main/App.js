@@ -5,6 +5,7 @@ import { withProvider } from '../context/Context';
 import NavBar from '../components/nav-bar/NavBar';
 import Content from '../content/Content';
 import Modal from '../components/modal/Modal';
+import ModalEscape from './ModalEscape';
 
 import {
   modalEnter,
@@ -29,7 +30,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <ModalEscape onKeyEscape={this.hideModal}>
         <NavBar />
         <Content showModal={this.showModal} />
         <CSSTransition
@@ -50,7 +51,7 @@ class App extends React.Component {
             />
           )}
         </CSSTransition>
-      </React.Fragment>
+      </ModalEscape>
     );
   }
 }
