@@ -20,7 +20,7 @@ const ContentInsides = ({ children }) => (
   <div className={insides}>{children}</div>
 );
 
-const Content = ({ location }) => (
+const Content = ({ location, showModal }) => (
   <TransitionGroup>
     <CSSTransition
       appear
@@ -49,7 +49,7 @@ const Content = ({ location }) => (
           path="/work"
           render={() => (
             <ContentInsides>
-              <Work />
+              <Work showModal={showModal} />
             </ContentInsides>
           )}
         />

@@ -19,7 +19,8 @@ class Animation extends React.Component {
       backgroundColor: '#00000000',
       success: widget => {
         let animIndex = 0;
-        widget.canvas.onclick = () => {
+        widget.canvas.onclick = e => {
+          e.stopPropagation();
           animIndex++;
           let animations = widget.skeleton.data.animations;
           if (animIndex >= animations.length) animIndex = 0;

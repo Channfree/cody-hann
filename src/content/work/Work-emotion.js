@@ -2,12 +2,26 @@ import { css } from 'emotion';
 
 import * as colors from '../../common/emotions';
 
-export const animations = css``;
+export const thumbnails = css`
+  column-gap: 2rem;
+  display: grid;
+  grid-template-columns: 18.75rem 18.75rem 18.75rem;
+  row-gap: 2rem;
+
+  @media (max-width: 1079px) {
+    grid-template-columns: 18.75rem 18.75rem;
+  }
+
+  @media (max-width: 779px) {
+    grid-template-columns: auto;
+  }
+`;
 
 export const work = css`
   align-items: center;
   ${colors.colorFrothyWaters(1)};
   display: flex;
   justify-content: center;
-  height: calc(100vh - 3rem);
+  padding-top: 2rem;
+  overflow-y: auto;
 `;

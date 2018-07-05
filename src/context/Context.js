@@ -8,7 +8,7 @@ import { BASE_URL } from '../common/urls';
 const Context = React.createContext();
 
 const withProvider = WrappedComponent =>
-  class extends React.Component {
+  class AnimationProvider extends React.Component {
     state = {
       animations: [],
     };
@@ -65,15 +65,10 @@ const withProvider = WrappedComponent =>
     }
   };
 
-const withConsumer = WrappedComponent =>
-  class extends React.Component {
-    render() {
-      return (
-        <Context.Consumer>
-          {context => <WrappedComponent {...this.props} {...context} />}
-        </Context.Consumer>
-      );
-    }
-  };
+const withConsumer = WrappedComponent => (props = {}) => (
+  <Context.Consumer>
+    {context => <WrappedComponent {...props} {...context} />}
+  </Context.Consumer>
+);
 
 export { withConsumer, withProvider };

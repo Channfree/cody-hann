@@ -33,7 +33,6 @@ export const exitActive = css`
   opacity: 0;
   transition: opacity 700ms ease-in-out;
   z-index: -1;
-  height: 0;
 `;
 
 export const insides = css`
