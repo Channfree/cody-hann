@@ -15,6 +15,7 @@ const Link = ({
   className,
   isRouterLink,
   location,
+  noTarget,
   staticContext,
   ...rest
 }) =>
@@ -27,7 +28,11 @@ const Link = ({
       {children}
     </RouterLink>
   ) : (
-    <a className={cx(link, className)} target="_blank" {...rest}>
+    <a
+      className={cx(link, className)}
+      target={noTarget ? '' : '_blank'}
+      {...rest}
+    >
       {children}
     </a>
   );

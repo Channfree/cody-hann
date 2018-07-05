@@ -12,11 +12,23 @@ export const contact = css`
 `;
 
 export const links = css`
+  column-gap: 3rem;
   display: grid;
+  grid-template-columns: 12rem 12rem 12rem;
+  grid-template-rows: 12rem 12rem;
+  row-gap: 2rem;
+
+  @media (max-width: 1079px) {
+    grid-template-columns: 12rem 12rem;
+    grid-template-rows: 12rem 12rem 12rem;
+  }
 
   & a {
     align-items: center;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
     transition: color 200ms ease-in-out;
 
     & path {
@@ -34,7 +46,8 @@ export const links = css`
     }
   }
 
-  & .svg {
-    width: 4rem;
+  span {
+    position: absolute;
+    bottom: 1.5rem;
   }
 `;

@@ -6,6 +6,7 @@ import Youtube from '../../components/svg/Youtube';
 import LinkedIn from '../../components/svg/LinkedIn';
 import Resume from '../../components/svg/Resume';
 import Twitter from '../../components/svg/Twitter';
+import Mail from '../../components/svg/Mail';
 
 import { contact, links } from './Contact-emotion';
 
@@ -16,33 +17,28 @@ const Contact = () => {
     <div className={contact}>
       <div className={links}>
         <Link href={`https://www.instagram.com/channgief?time=${time}`}>
-          <span className="svg">
-            <Instagram />
-          </span>
+          <Instagram width={50} />
           <span>@Channgief</span>
         </Link>
         <Link href={`https://www.youtube.com/channfree?time=${time}`}>
-          <span className="svg">
-            <Youtube />
-          </span>
+          <Youtube width={70} />
           <span>Channgief</span>
         </Link>
+        <Link href={`https://www.twitter.com/channfree?time=${time}`}>
+          <Twitter width={60} />
+          <span>@Channfree</span>
+        </Link>
         <Link href={`https://www.linkedin.com/in/codyhann?time=${time}`}>
-          <span className="svg">
-            <LinkedIn />
-          </span>
+          <LinkedIn width={50} />
+        </Link>
+        <Link
+          href={`mailto:channfree@gmail.com?Subject=Hi%20Cody&time=${time}`}
+          noTarget
+        >
+          <Mail width={65} />
         </Link>
         <Link>
-          <span className="svg">
-            <Resume />
-          </span>
-          <span>Resumé</span>
-        </Link>
-        <Link href={`https://www.twitter.com/channfree?time=${time}`}>
-          <span className="svg">
-            <Twitter />
-          </span>
-          <span>@Channfree</span>
+          <Resume width={40} />
         </Link>
       </div>
     </div>
