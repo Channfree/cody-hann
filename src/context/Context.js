@@ -30,24 +30,45 @@ const withProvider = WrappedComponent =>
           };
         });
 
-        const animations = await Promise.all(
+        const getJsonContent = Promise.all(
           manifest.map(({ json, prefix }) =>
             axios.get(`${BASE_URL}/${prefix}${json}`)
           )
         );
+        const getAtlasContent = Promise.all(
+          manifest.map(({ atlas, prefix }) =>
+            axios.get(`${BASE_URL}/${prefix}${atlas}`)
+          )
+        );
+        const [jsonContent, atlasContent] = await Promise.all([
+          getJsonContent,
+          getAtlasContent,
+        ]);
+
+        const jsonAndAtlasContent = zip(jsonContent, atlasContent).map(
+          ([json, atlas]) => ({
+            jsonContent: json.data,
+            atlasContent: atlas.data,
+          })
+        );
 
         const newState = {
-          animations: zip(manifest, animations).map(([m, a]) => {
-            const animationNames = keys(get(a, 'data.animations'));
-            const randomNumber = Math.floor(
-              Math.random() * animationNames.length
-            );
+          animations: zip(manifest, jsonAndAtlasContent).map(
+            ([m, contents]) => {
+              const animationNames = keys(
+                get(contents.jsonContent, 'animations')
+              );
+              const randomNumber = Math.floor(
+                Math.random() * animationNames.length
+              );
 
-            return {
-              ...m,
-              animationName: animationNames[randomNumber],
-            };
-          }),
+              return {
+                ...m,
+                ...contents,
+                animationName: animationNames[randomNumber],
+              };
+            }
+          ),
         };
 
         this.setState(newState);

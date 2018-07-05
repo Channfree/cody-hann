@@ -12,6 +12,8 @@ export const contact = css`
 `;
 
 export const links = css`
+  display: grid;
+
   & a {
     align-items: center;
     display: flex;

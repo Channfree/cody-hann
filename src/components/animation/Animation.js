@@ -11,23 +11,34 @@ class Animation extends React.Component {
 
   widget;
 
-  createSpineWidget = ({ animationName, atlas, json, name, prefix }) => {
-    this.widget = new spine.SpineWidget(name, {
-      json: `${BASE_URL}/${prefix}${json}`,
-      atlas: `${BASE_URL}/${prefix}${atlas}`,
-      animation: animationName,
-      backgroundColor: '#00000000',
-      success: widget => {
-        let animIndex = 0;
-        widget.canvas.onclick = e => {
-          e.stopPropagation();
-          animIndex++;
-          let animations = widget.skeleton.data.animations;
-          if (animIndex >= animations.length) animIndex = 0;
-          widget.setAnimation(animations[animIndex].name);
-        };
-      },
-    });
+  createSpineWidget = ({
+    animationName,
+    atlasContent,
+    jsonContent,
+    name,
+    prefix,
+  }) => {
+    this.widget = new Promise((resolve, reject) => {
+      new spine.SpineWidget(name, {
+        animation: animationName,
+        imagesPath: `${BASE_URL}/${prefix}`,
+        jsonContent,
+        atlasContent,
+        backgroundColor: '#00000000',
+        error: () => reject(),
+        success: widget => {
+          let animIndex = 0;
+          widget.canvas.onclick = e => {
+            e.stopPropagation();
+            animIndex++;
+            let animations = widget.skeleton.data.animations;
+            if (animIndex >= animations.length) animIndex = 0;
+            widget.setAnimation(animations[animIndex].name);
+          };
+          resolve(widget);
+        },
+      });
+    }).catch(console.error);
   };
 
   render() {
