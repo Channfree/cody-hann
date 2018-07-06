@@ -1,6 +1,12 @@
 import { css } from 'emotion';
 
 export const animation = css`
-  height: 100%;
+  align-items: center;
+  display: flex;
+  height: 18.75rem;
   width: 100%;
+
+  @media (max-width: 779px) {
+    height: 10rem;
+  }
 `;

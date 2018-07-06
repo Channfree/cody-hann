@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import { withProvider } from '../context/Context';
 import NavBar from '../components/nav-bar/NavBar';
 import Content from '../content/Content';
-import Modal from '../components/modal/Modal';
+import Modal from '../content/modal/Modal';
 import ModalEscape from './ModalEscape';
 
 import {
